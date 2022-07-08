@@ -8,14 +8,14 @@ private:
 	string _longCode = "";
 	string _password = "";
 	string _cvv = 0;
-	size_t _balance = 0;
+	double _balance = 0;
 	size_t _expiredMonth = 0;
 	size_t _expiredYear = 0;
 
 public:
 
 	BankCard() = default;
-	BankCard(string longCode, string password, string cvv, size_t balance, size_t expiredMonth, size_t expiredYear);
+	BankCard(string longCode, string password, string cvv, double balance, size_t expiredMonth, size_t expiredYear);
 
 	size_t id();
 	string longCode();
@@ -24,8 +24,8 @@ public:
 	size_t expiredMonth();
 	size_t expiredYear();
 
-	void addToBalance(size_t money);
-	void getCash(size_t money);
+	void addToBalance(double money);
+	void getCash(double money);
 
 	friend ostream& operator<<(ostream& out, const BankCard& card);
 
@@ -36,7 +36,7 @@ public:
 size_t BankCard::_staticId = 0;
 
 // CONSTRUCTOR
-BankCard::BankCard(string longCode, string password, string cvv, size_t balance, size_t expiredMonth, size_t expiredYear)
+BankCard::BankCard(string longCode, string password, string cvv, double balance, size_t expiredMonth, size_t expiredYear)
 	: _id(++_staticId), _longCode(longCode), _password(password), _cvv(cvv), _balance(balance), _expiredMonth(expiredMonth), _expiredYear(expiredYear) {}
 
 
@@ -83,3 +83,18 @@ size_t BankCard::expiredYear()
 }
 
 #pragma endregion
+
+
+// METHODS
+void BankCard::addToBalance(double money)
+{
+	_balance += money;
+}
+
+void BankCard::getCash(double money)
+{
+	if (money > _balance)
+		throw exception("Do not have enough money in balace");
+
+	_balance -= money;
+}

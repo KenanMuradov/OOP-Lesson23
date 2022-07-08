@@ -57,7 +57,7 @@
       <Filter>Файлы заголовков\Bank</Filter>
     </ClInclude>
     <ClInclude Include="University.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\University</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
