@@ -13,6 +13,10 @@ public:
 	Teacher() = default;
 	Teacher(string name, string surname, size_t age, string department, size_t salary, BankCard card);
 
+	string deparment();
+	size_t salary();
+	BankCard card();
+
 	void addGroup(Group* group);
 	void showBalance();
 
@@ -43,6 +47,13 @@ ostream& operator<<(ostream& out, const Teacher& t)
 
 	return out;
 }
+
+// GETTERS
+
+string Teacher::deparment() { return _department; }
+size_t Teacher::salary() { return _salary; }
+BankCard Teacher::card() { return _card; }
+
 
 // METHODS
 void Teacher::addGroup(Group* group)

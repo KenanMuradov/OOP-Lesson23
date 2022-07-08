@@ -17,6 +17,7 @@ public:
 
 	size_t getUniversityScore();
 	void showAllStudents();
+	size_t getPayment();
 
 	friend ostream& operator<<(ostream& out, const University& u);
 
@@ -69,6 +70,19 @@ void University::showAllStudents()
 	for (size_t i = 0; i < students.size(); i++)
 		cout << *students[i] << endl;
 }
+
+size_t University::getPayment()
+{
+	size_t sum = 0;
+	for (size_t i = 0; i < students.size(); i++)
+		sum += students[i]->scholarship();
+
+	for (size_t i = 0; i < teachers.size(); i++)
+		sum += teachers[i]->salary();
+	
+	return sum;
+}
+
 
 #pragma endregion
 

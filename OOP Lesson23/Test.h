@@ -91,6 +91,5 @@ void start()
 
 	cout << university;
 
-
-	university.showAllStudents();
+	cout << university.getPayment();
 }
